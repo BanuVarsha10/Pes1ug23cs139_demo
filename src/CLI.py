@@ -5,7 +5,7 @@ Example: python src/cli.py add 5 3
 
 import sys
 import click
-from calculator import add, subtract, multiply, divide, power, square_root
+from .calculator import add, subtract, multiply, divide, power, square_root
 
 
 @click.command()
@@ -16,9 +16,9 @@ def calculate(operation, num1, num2=None):
     """Simple calculator CLI"""
     try:
         if operation in ("add", "addition"):
-             result = add(num1, num2)
+            result = add(num1, num2)
         elif operation in ("subtract", "subtraction"):
-             result = subtract(num1, num2)
+            result = subtract(num1, num2)
         elif operation == "multiply":
             result = multiply(num1, num2)
         elif operation == "divide":
@@ -46,4 +46,5 @@ def calculate(operation, num1, num2=None):
 
 
 if __name__ == "__main__":
+    # pylint: disable=no-value-for-parameter
     calculate()
